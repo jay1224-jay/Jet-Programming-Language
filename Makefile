@@ -26,7 +26,8 @@ clean:
 print_obj:
 	@echo $(OBJ)
 
-
+run:
+	./main hello.jet
 
 
 # For example, consider the following declaration:

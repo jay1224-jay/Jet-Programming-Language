@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "common.h"
+
 #define EXTENSION_NAME "jet"   // "jdkfa.j"
 
 int extension_identifier( char* file_name, int file_name_length, char* extension_name, int ex_name_length ) {
@@ -51,6 +53,7 @@ int main(int argc, char* argv[])
 
     if ( extension_identifier( file_name, strlen(file_name), EXTENSION_NAME, strlen(EXTENSION_NAME)) ) {
 
+
         FILE *fptr;
         fptr = fopen( file_name, "r");
 
@@ -60,6 +63,7 @@ int main(int argc, char* argv[])
         }
 
 
+        /* read token
         char buf;
         int string_flag = 0;
 
@@ -78,8 +82,10 @@ int main(int argc, char* argv[])
 
 
         printf("end of file\n");
+        */
 
         token(fptr);
+
 
     } else {
 
