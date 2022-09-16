@@ -4,6 +4,9 @@
 
 I started this project on 15, Sep, 2022
 
+# To Do
+1. accomplish the best tokenizer.
+2. accompilsh 1.
 
 the syntax of the language:
 
