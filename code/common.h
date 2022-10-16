@@ -10,4 +10,4 @@
 
 // functions
 
-void token(FILE * fptr );
+void file_token(FILE * fptr );

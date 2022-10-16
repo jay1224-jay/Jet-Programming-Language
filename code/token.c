@@ -4,14 +4,21 @@
 
 #include "common.h"
 
-void token(FILE * fptr);
+#define MAX_STRING_LENGTH 50
+
+typedef char string[MAX_STRING_LENGTH];
+
+void file_token(FILE * fptr);
 
 
-void token(FILE * fptr) {
+void file_token(FILE * fptr) {
 
     char c;
     char current_word[30];
     char * p_in_word = current_word;
+
+    string one_line_of_code[50];
+    string * p_in_oloc = one_line_of_code;
 
     int string_flag = 0;
     int word_begin = 0;
@@ -33,6 +40,7 @@ void token(FILE * fptr) {
                         word_begin = 0;
                         memset(p_in_word - 1, 0, 1);
                         printf("none\n\n == a full sentense: \"%s\"\n\n", current_word);
+                        memcpy(p_in_oloc++, current_word, strlen(current_word)); 
                         memset(current_word, 0, 30); 
                         p_in_word = current_word;
                         // 30 is from the lenght of current_word
@@ -55,7 +63,10 @@ void token(FILE * fptr) {
                         word_end = 1;
                         word_begin = 0;
                         memset(p_in_word - 1, 0, 1);
-                        printf("none\n\n == a full sentense: \"%s\"\n\n", current_word);
+                        // printf("none\n\n == a full sentense: \"%s\"\n\n", current_word);
+
+                        memcpy(p_in_oloc++, current_word, strlen(current_word)); 
+
                         memset(current_word, 0, 30); 
                         p_in_word = current_word;
                         // 30 is from the lenght of current_word
@@ -88,4 +99,15 @@ void token(FILE * fptr) {
         printf("\"\n");
 
     }
+
+
+    printf("gonna print one line of code\n");
+
+    for ( string * pointer = one_line_of_code ; pointer != one_line_of_code + 50 ; ++pointer ) {
+        printf("%s, ", *pointer);
+    }
+
+    puts("\n");
+
+
 }

@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
         printf("end of file\n");
         */
 
-        token(fptr);
+        file_token(fptr);
 
 
     } else {
